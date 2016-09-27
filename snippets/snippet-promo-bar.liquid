@@ -1,0 +1,14 @@
+{% if settings.header--promo-bar--enabled %}
+  {% unless template != 'index' and settings.header--promo-bar--show-on == 'home' %}
+    <div class="promo-bar" style="display: none;">
+      {% if settings.header--promo-bar--link.size > 0 %}
+        <a href="{{ settings.header--promo-bar--link }}">
+          <span class="text">{{settings.header--promo-bar--text}}</span>
+        </a>
+      {% else %}
+        <span class="text">{{settings.header--promo-bar--text}}</span>
+      {% endif %}
+      <button class="close">&#x2715;</button>
+    </div>
+  {% endunless %}
+{% endif %}

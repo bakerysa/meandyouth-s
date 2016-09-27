@@ -1,0 +1,357 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+
+  <!-- Blockshop Theme Version 2.5.2 by Troop Themes - http://troopthemes.com/  -->
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% if settings.general-favicon-enabled %}
+    <link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />
+  {% endif %}
+
+  {% if template == 'index' %}
+    <title>{{ page_title }}</title>
+  {% elsif template == 'password' %}
+    <title>{{ shop.name }}</title>
+  {% else %}
+    <title>{{ page_title }} | {{ shop.name }}</title>
+  {% endif %}
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description }}" />
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  {% include 'snippet-fb-open-graph-tags' %}
+
+  {% include 'snippet-webfont' %}
+
+  {{ content_for_header }}
+
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {% include 'custom__styles' %}
+
+  <!--[if lt IE 8]>
+    {{ 'json2.js' | asset_url | script_tag }}
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  {% comment %}<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>{% endcomment %}
+  {{ '//html5shim.googlecode.com/svn/trunk/html5.js' | script_tag }}
+  {{ 'dd_roundies.js' | asset_url | script_tag }}
+  <script>
+  DD_roundies.addRule('.circle', '45px');
+  </script>
+  <![endif]-->
+
+  <!--[if IE]>
+    <style>
+      .main-header .currency-selector select {
+        width: 80px;
+        padding-right: 10px;
+      }
+    </style>
+  <![endif]-->
+
+  <!-- >= IE 11 -->
+  <style>
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      .main-header .currency-selector select {
+        width: 80px;
+        padding-right: 10px;
+      }
+    }
+  </style>
+
+
+
+  {{ 'custom.modernizr.js' | asset_url | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+  {% if template contains 'customers' %}
+    {{ 'customer.css' | asset_url | stylesheet_tag }}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  <script>
+    var twitterID = '{{ settings.twitter_username }}',
+    general_external_links_enabled = true,
+    general_scroll_to_active_item = true,
+    shop_url = '{{ shop.url }}',
+    shop_money_format = '{{ shop.money_format | strip_html | replace: "'", '"' | strip }}',
+    home_slider_auto_enabled = {{ settings.home-slider-auto-enabled }},
+    home_slider_rotate_frequency = {{ settings.home-slider-rotate-frequency }},
+    home_slider_transition_style = '{{ settings.home-slider-transition-style }}',
+    home_widget_twitter_enabled = {{ settings.home-widget-twitter }},
+    home_widget_blog_enabled = {{ settings.home-widget-blog }},
+    home_widget_instagram_access_token = '{{ settings.home-widget-instagram-access-token }}',
+    product_zoom_enabled = {{ settings.product-zoom-enabled }},
+    product_modal_enabled = {{ settings.product-modal-enabled }},
+    products_per_row = {{ settings.collections-products-per-row | to_number }},
+    currency_switcher_enabled = {{ settings.show_multiple_currencies }},
+    popup_config = {
+      enabled               : {{ settings.popup--enabled }},
+      newsletter_enabled    : {{ settings.popup--newsletter--enabled }},
+      social_icons_enabled  : {{ settings.popup--social-icons--enabled }},
+      show_image_enabled    : {{ settings.popup--show-image--enabled }},
+      image_link            : "{{ settings.popup--image-url }}",
+      seconds_until         : {{ settings.popup--seconds }},
+      show_image_url        : '{{ "popup.jpg" | asset_url }}',
+      page_content          : '{{ settings.popup--page-content }}',
+      days_until            : '{{ settings.popup--days }}',
+      storage_key           : 'troop_popup_storage'
+    };
+
+    // newer naming convention
+    var theme = {};
+    theme.shop_currency = '{{ shop.currency }}';
+    theme.translation = {};
+    theme.translation.newsletter_success_message = '{{ "layout.footer.newsletter_success_message" | t }}';
+    theme.translation.newsletter_email_blank = '{{ "layout.footer.newsletter_email_blank" | t }}';
+    theme.preload_image = '{{ "popup.jpg" | asset_url }}';
+    theme.size_chart_label = '{{ "products.size_chart" | t }}';
+    theme.product_size_chart_option = '{{ settings.product-size-chart-option }}';
+    theme.product_low_in_stock = {
+      show: {{ settings.product-low-in-stock-amount }} === false ? false : true,
+      amount: '{{ settings.product-low-in-stock-amount }}',
+      one: '{{ "products.low_in_stock" | t: count: 1 }}',
+      other: '{{ "products.low_in_stock" | t: count: 2 }}'
+    };
+
+  </script>
+
+  {% if settings.show_multiple_currencies %}
+    {% include 'snippet-currencies' %}
+  {% endif %}
+
+  {{ 'plugins.js' | asset_url | script_tag }}
+  {{ 'shop.js' | asset_url | script_tag }}
+
+</head>
+
+
+<body class="page-{{ page_title | handle }} {% if customer %}customer-logged-in {% endif %}template-{{ template | split: '.' | first | remove: '/' | remove: '_' }}{% if template == 'index' and settings.home-transparent-menu %} transparent-menu{% endif %}">
+
+  {% include 'snippet-promo-bar' %}
+
+  <header class="main-header">
+    <div class="bg"></div>
+    <div class="row top">
+      {% if settings.show_multiple_currencies and settings.header-logo-center %}
+        <div class="currency-selector columns left-aligned">
+          {% include 'snippet-currency-selector' %}
+        </div>
+      {% endif %}
+
+      <div class="columns{% if settings.header-logo-center %} logo-center{% endif %}">
+        {% include 'snippet-store-title' %}
+      </div>
+
+      <div class="search-account columns">
+        {% include 'snippet-searchbar-account' %}
+      </div>
+
+    </div><!-- .row -->
+
+    <div class="bottom-row">
+      <div class="row">
+        <div class="columns menu-container{% if settings.header-menu-center %} text-center{% endif %}">
+          {% include 'snippet-main-menu' %}
+        </div>
+
+        <div class="columns cart-container">
+          {% include 'snippet-cart' %}
+        </div>
+
+        <div class="mobile-tools">
+          <a class="glyph menu" href=""></a>
+          {% if settings.header-search-show %}
+          <a href="/search" class="glyph search"></a>
+          {% endif %}
+          {% if settings.header-account-show and shop.customer_accounts_enabled %}
+          <a href="/account" class="glyph account"></a>
+          {% endif %}
+          <a href="/cart" class="glyph cart"></a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="main-menu-dropdown-panel">
+      <div class="row{% if settings.header-menu-center %} text-center{% endif %}">
+
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      {% include 'snippet-mobile-menu' %}
+    </div>
+
+    <div class="row">
+      <div class="header-divider"></div>
+    </div>
+
+  </header>
+
+  <section class="main-content">
+
+      {{ content_for_layout }}
+  </section>
+
+  <footer class="main-footer">
+
+    <div class="row bottom">
+      <div class="column-1 large-4 columns">
+        <h2 class="title">{{ settings.footer-block-1-title }}</h2>
+        <div class="content">
+          <p class="text">{{ settings.footer-block-1-text | newline_to_br }}</p>
+        </div>
+
+      </div>
+      <div class="column-2 large-4 columns">
+        <h2 class="title">{{ settings.footer-block-2-title }}</h2>
+
+        <div class="content">
+          {% if linklists[settings.footer-block-2-linklist].links.size > 0 %}
+            {% assign footer_nav = settings.footer-block-2-linklist %}
+
+            <ul class="footer-nav plain-list" role="navigation">
+            {% for link in linklists[footer_nav].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+
+
+      <div class="column-3 large-4 columns">
+        {% assign show_social = false %}
+        {% if settings.footer-facebook-follow-url.size > 0 or settings.footer-twitter-follow-url.size > 0  or settings.footer-instagram-follow-url.size > 0 or settings.footer-pinterest-follow-url.size > 0 or settings.footer-tumblr-follow-url.size > 0 or settings.footer-vimeo-follow-url.size > 0 or settings.footer-youtube-follow-url.size > 0 or settings.footer-google-plus-follow-url.size > 0 %}
+          {% assign show_social = true %}
+        {% endif %}
+        {% if settings.footer-mailing-list-show or show_social %}
+          {% assign newsletter_title = 'layout.footer.newsletter_title' | t %}
+          {% if newsletter_title.size > 0 %}
+            <h2 class="title">{{ newsletter_title }}</h2>
+          {% endif %}
+        {% endif %}
+
+        <div class="content">
+          {% if settings.footer-mailing-list-show or settings.popup--newsletter--enabled %}
+            <div id="mailing-list-module" {% if settings.footer-mailing-list-show == false and settings.popup--newsletter--enabled %}style="display:none;"{% endif %}>
+              {% assign newsletter_subtitle = 'layout.footer.newsletter_subtitle' | t %}
+              {% if newsletter_subtitle.size > 0 %}
+                <p>{{ newsletter_subtitle }}</p>
+              {% endif %}
+
+
+              {% if settings.footer-mailing-list-form-action.size > 0 %}
+                <form action="{{ settings.footer-mailing-list-form-action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mailchimp-form validate" target="_blank">
+                  <input type="email" placeholder="{{ 'layout.footer.newsletter_placeholder' | t }}" name="EMAIL" id="email-input" />
+                  <input type="submit" class="button prefix" value="{{ 'layout.footer.newsletter_button' | t }}" name="subscribe" id="email-submit" />
+                </form>
+              {% else %}
+                {% form 'customer' %}
+                {% if form.posted_successfully? %}
+                  <p class="success feedback">{{ 'layout.footer.newsletter_success_message' | t }}</p>
+                {% endif %}
+                {% if form.errors %}
+                <p class="error feedback">
+                {% for field in form.errors %}
+                  {{ field }} {{ form.errors.messages[field] }}
+                {% endfor %}
+                </p>
+              {% endif %}
+              <input type="hidden" id="contact_tags" name="contact[tags]" value="newsletter" />
+              <input type="hidden" id="newsletter-first-name" name="contact[first_name]" value="Subscriber" />
+              <input type="hidden" id="newsletter-last-name" name="contact[last_name]" value="Newsletter" />
+              <input type="email" placeholder="{{ 'layout.footer.newsletter_placeholder' | t }}" name="contact[email]" />
+              <input type="submit" class="button prefix" value="{{ 'layout.footer.newsletter_button' | t }}" name="subscribe" id="email-submit" />
+
+              {% if form.posted_successfully? or form.errors %}
+              <script>window.location.hash = '#mailing-list-module';</script>
+              {% endif %}
+              {% endform %}
+              {% endif %}
+            {% endif %}
+            </div>
+
+          {% if show_social %}
+            <div class="social-follow">
+              {% if settings.footer-facebook-follow-url.size > 0 %}<a title="Facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}"></a>{% endif %}
+              {% if settings.footer-twitter-follow-url.size > 0 %}<a title="Twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}"></a>{% endif %}
+              {% if settings.footer-instagram-follow-url.size > 0 %}<a title="Instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}"></a>{% endif %}
+              {% if settings.footer-pinterest-follow-url.size > 0 %}<a title="Pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}"></a>{% endif %}
+              {% if settings.footer-tumblr-follow-url.size > 0 %}<a title="Tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}"></a>{% endif %}
+              {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="Vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
+              {% if settings.footer-youtube-follow-url.size > 0 %}<a title="Youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
+              {% if settings.footer-google-plus-follow-url.size > 0 %}<a title="Google Plus" aria-hidden="true" target="_blank" class="glyph googleplus" href="{{ settings.footer-google-plus-follow-url }}"></a>{% endif %}
+
+              {% if settings.footer-rss-follow-url.size > 0 %}<a title="RSS" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% unless shop.enabled_payment_types == empty %}
+      {% if settings.footer-payment-options-show %}
+        <div class="row">
+          <div class="columns">
+              <ul class="payment-options">
+                {% for type in shop.enabled_payment_types %}
+                  <li>
+                    <span class="icon icon-{{type}}" aria-hidden="true"></span>
+                  </li>
+                {% endfor %}
+              </ul>
+          </div>
+        </div>
+      {% endif %}
+    {% endunless %}
+  </footer>
+
+
+  {% unless template contains 'password' %}
+    <button class="popup-modal-close">&#x2715;</button>
+    <div class="popup-modal-mask"></div>
+  {% endunless %}
+
+
+
+  {% if template contains 'product' %}
+    <script>
+      var selectCallback = function(variant, selector) {
+        theme.variantSelected(variant, selector);
+        // add your selectCallback code here...
+
+      };
+
+      jQuery(function($) {
+        new Shopify.OptionSelectors("variant-listbox", {
+           product: {{ product | json }},
+          onVariantSelected: selectCallback,
+          enableHistoryState: true
+        });
+      });
+    </script>
+  {% endif %}
+
+
+  <!--<style> iframe#admin_bar_iframe { display: none !important; } </style>-->
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+development:
+  access_token: ce35364c486d06897f2ecd102935d228
+  password: ce35364c486d06897f2ecd102935d228
+  theme_id: "148736262"
+  store: me-yout.myshopify.com
+  bucket_size: 40
+  refill_rate: 2
+  timeout: 30s
