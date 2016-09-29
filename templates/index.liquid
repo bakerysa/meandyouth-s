@@ -300,7 +300,6 @@
 
 
           {% if column_count > 0 %}
-
             {% assign widget = 'home-widget-image-text-1' %}
             {% if settings.home-widget-image-text-1 %}
             <div class="columns large-{{ 12 | divided_by: column_count }}">
@@ -382,19 +381,7 @@
     {% if column_count > 0 %}
       <div class="social-feeds">
         <div class="row">
-          {% assign widget = 'home-widget-twitter' %}
-          {% if settings.home-widget-twitter %}
-          <div class="columns large-{{ 12 | divided_by: column_count }}">
-            {% include 'snippet-home-widget' %}
-          </div>
-          {% endif %}
-
-          {% assign widget = 'home-widget-instagram' %}
-          {% if settings.home-widget-instagram %}
-          <div class="columns large-{{ 12 | divided_by: column_count }}" style="overflow: hidden;">
-            {% include 'snippet-home-widcd get' %}
-          </div>
-          {% endif %}
+          <h3 class="title"><a href="{{ blogs[widget_name].url }}">{{ 'home.blog_feed.title' | t }}</a></h3>
 
           {% assign widget = 'home-widget-blog' %}
           {% if settings.home-widget-blog %}
@@ -402,6 +389,7 @@
             {% include 'snippet-home-widget' %}
           </div>
           {% endif %}
+
         </div>
       </div>
 

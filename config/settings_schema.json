@@ -1090,9 +1090,9 @@
         "label": "Title"
       },
       {
-        "type": "textarea",
-        "id": "footer-block-1-text",
-        "label": "Text"
+        "type": "link_list",
+        "id": "footer-block-1-linklist",
+        "label": "Linklist"
       },
       {
         "type": "header",
@@ -2355,54 +2355,6 @@
   {
     "name": "Home page - social feeds",
     "settings": [
-      {
-        "type": "header",
-        "content": "Twitter feed"
-      },
-      {
-        "type": "checkbox",
-        "id": "home-widget-twitter",
-        "label": "Enabled",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "home-widget-twitter-username",
-        "label": "Username",
-        "default": "shopify"
-      },
-      {
-        "type": "hidden",
-        "id": "home-widget-twitter-type",
-        "default": "twitter"
-      },
-      {
-        "type": "header",
-        "content": "Instagram feed"
-      },
-      {
-        "type": "checkbox",
-        "id": "home-widget-instagram",
-        "label": "Enabled",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "home-widget-instagram-username",
-        "label": "Username",
-        "default": "shopify"
-      },
-      {
-        "type": "text",
-        "id": "home-widget-instagram-access-token",
-        "label": "Access token",
-        "info": "[Get your access token](http:\/\/troopthemes.com\/pages\/instagram-integration)"
-      },
-      {
-        "type": "hidden",
-        "id": "home-widget-instagram-type",
-        "default": "instagram"
-      },
       {
         "type": "header",
         "content": "Blog feed"

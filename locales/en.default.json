@@ -208,8 +208,13 @@
     "name": "Your Name",
     "email": "Email",
     "phone": "Phone Number",
+    "subject": "Subject",
     "message": "Message",
-    "button": "Send"
+    "button": "Send",
+    "contact-promo-left": "General",
+    "contact-promo-right": "Sales",
+    "contact-button-left": "Email Address",
+    "contact-button-right": "Email Address"
   },
   "customer": {
     "account": {

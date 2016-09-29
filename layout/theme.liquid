@@ -216,7 +216,15 @@
       <div class="column-1 large-4 columns">
         <h2 class="title">{{ settings.footer-block-1-title }}</h2>
         <div class="content">
-          <p class="text">{{ settings.footer-block-1-text | newline_to_br }}</p>
+          {% if linklists[settings.footer-block-1-linklist].links.size > 0 %}
+            {% assign footer_nav = settings.footer-block-1-linklist %}
+
+            <ul class="footer-nav plain-list" role="navigation">
+            {% for link in linklists[footer_nav].links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
         </div>
 
       </div>
@@ -250,6 +258,21 @@
         {% endif %}
 
         <div class="content">
+          {% if show_social %}
+            <div class="social-follow">
+              {% if settings.footer-facebook-follow-url.size > 0 %}<a title="Facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}"></a>{% endif %}
+              {% if settings.footer-twitter-follow-url.size > 0 %}<a title="Twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}"></a>{% endif %}
+              {% if settings.footer-instagram-follow-url.size > 0 %}<a title="Instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}"></a>{% endif %}
+              {% if settings.footer-pinterest-follow-url.size > 0 %}<a title="Pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}"></a>{% endif %}
+              {% if settings.footer-tumblr-follow-url.size > 0 %}<a title="Tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}"></a>{% endif %}
+              {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="Vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
+              {% if settings.footer-youtube-follow-url.size > 0 %}<a title="Youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
+              {% if settings.footer-google-plus-follow-url.size > 0 %}<a title="Google Plus" aria-hidden="true" target="_blank" class="glyph googleplus" href="{{ settings.footer-google-plus-follow-url }}"></a>{% endif %}
+
+              {% if settings.footer-rss-follow-url.size > 0 %}<a title="RSS" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
+            </div>
+          {% endif %}
+
           {% if settings.footer-mailing-list-show or settings.popup--newsletter--enabled %}
             <div id="mailing-list-module" {% if settings.footer-mailing-list-show == false and settings.popup--newsletter--enabled %}style="display:none;"{% endif %}>
               {% assign newsletter_subtitle = 'layout.footer.newsletter_subtitle' | t %}
@@ -289,20 +312,6 @@
             {% endif %}
             </div>
 
-          {% if show_social %}
-            <div class="social-follow">
-              {% if settings.footer-facebook-follow-url.size > 0 %}<a title="Facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}"></a>{% endif %}
-              {% if settings.footer-twitter-follow-url.size > 0 %}<a title="Twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}"></a>{% endif %}
-              {% if settings.footer-instagram-follow-url.size > 0 %}<a title="Instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}"></a>{% endif %}
-              {% if settings.footer-pinterest-follow-url.size > 0 %}<a title="Pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}"></a>{% endif %}
-              {% if settings.footer-tumblr-follow-url.size > 0 %}<a title="Tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}"></a>{% endif %}
-              {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="Vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
-              {% if settings.footer-youtube-follow-url.size > 0 %}<a title="Youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
-              {% if settings.footer-google-plus-follow-url.size > 0 %}<a title="Google Plus" aria-hidden="true" target="_blank" class="glyph googleplus" href="{{ settings.footer-google-plus-follow-url }}"></a>{% endif %}
-
-              {% if settings.footer-rss-follow-url.size > 0 %}<a title="RSS" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
-            </div>
-          {% endif %}
         </div>
       </div>
     </div>

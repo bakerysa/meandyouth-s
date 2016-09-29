@@ -110,21 +110,23 @@
 	{% endif %}
 
 
-	<div class="blog-widget">
-    <h3 class="title"><a href="{{ blogs[widget_name].url }}">{{ 'home.blog_feed.title' | t }}</a></h3>
-    <ul class="colored-links">
-    {% for article in blogs[widget_name].articles limit: 2 %}
-      <li>
-        <div class="item-title">{{ article.title }}</div>
-        <div class="date">{{  article.published_at | date: format: 'month_day_year' }}</div>
-        <div class="content">
-        	{{ article.content | strip_html | truncate: 120 }}
-        </div>
-        <div class="read-more"><a href="{{ article.url }}">{{ 'home.blog_feed.read_more' | t }} <span aria-hidden="true" class="glyph arrow-right"></span></a></div>
-      </li>
-    {% endfor %}
-    </ul>
-  </div>
+{% for article in blogs[widget_name].articles limit: 3 %}
+	<div class="columns large-4">
+		<div class="blog-widget">
+	    <ul class="colored-links">
+									<img src="{{ article.image.src | img_url: '2048x2048' }}" alt="{{ article.image.alt }}">
+	      <li>
+					<div class="date">{{  article.published_at | date: format: 'month_day_year' }}</div>
+	        <div class="item-title">{{ article.title }}</div>
+	        <div class="content">
+	        	{{ article.content | strip_html | truncate: 120 }}
+	        </div>
+	        <div class="read-more"><a href="{{ article.url }}">{{ 'home.blog_feed.read_more' | t }} <span aria-hidden="true" class="glyph arrow-right"></span></a></div>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+{% endfor %}
 
 
 

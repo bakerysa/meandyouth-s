@@ -33,7 +33,7 @@
       {% endif %}
       <a class="image-link" href="{{ product.url | within: collection }}">
         {% if has_hover %}
-          <img src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" class="hover-image" />
+          <img src="{{ product.images[1] | product_img_url: '1400x1400' }}" alt="{{ product.images[1].alt | escape }}" class="hover-image" />
         {% endif %}
         <img {% if product_slider %}class="lazyOwl" data-src="{{ product.featured_image.src | product_img_url: 'large' }}"{% endif %} src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
       </a>
