@@ -3,7 +3,7 @@
 <div class="row show-for-medium-up">
   <div class="columns large-12">
     {% include 'snippet-breadcrumbs' %}
-  </div> 
+  </div>
 </div>
 
 <div class="previous-next row">
@@ -24,20 +24,20 @@
   </div>
 </div>
 
-<div class="left-two-columns-wrapper row"> 
-  
+<div class="left-two-columns-wrapper row">
+
   <div class="article columns large-9">
-    
+
     <div class="left-sidebar columns large-3 show-for-large-up">
       <div class="date block">
         <h3 class="title">{{ 'blog.article.date' | t }}</h3>
         <p class="content">{{ article.published_at | date: format: 'month_day_year' }}</p>
       </div>
-        
-      <div class="author block">
+
+      <!-- <div class="author block">
         <h3 class="title">{{ 'blog.article.written_by' | t }}</h3>
         <p class="content">{{ article.author }}</p>
-      </div>
+      </div> -->
 
       {% if article.comments_enabled? %}
       <div class="comments block">
@@ -52,9 +52,9 @@
 
     <div class="middle-column columns large-9">
       <h1 class="title"><a href="{{ article.url }}">{{ article.title }}</a></h1>
-      <p class="mobile-meta show-for-medium-down">
+      <!-- <p class="mobile-meta show-for-medium-down">
         {{ 'blog.article.written_by' | t }} {{ article.author }} - {{ article.published_at | date: format: 'month_day_year' }}
-      </p>
+      </p> -->
       {% if article.image %}
         <div class="featured-image">
           {{ article | img_url: 'large' | img_tag }}
@@ -69,17 +69,17 @@
       <!-- Begin comments -->
       {% if blog.comments_enabled? %}
       <div id="comments" class="comments">
-        
+
         {% if article.comments.size > 0 or comment.created_at %}
         <h2 class="title">{{ 'blog.article.comments' | t }}</h2>
-        
+
         {% if comment and comment.created_at %}
           <div id="comment-{{ comment.id }}" class="comment clearfix">
             <h3 class="author"><strong>{{ comment.author }}</strong> <br/>  <span class="date">{{ comment.created_at | date: format: 'month_day_year' }}</span></h3>
             <div class="comment-content">{{ comment.content }}</div>
           </div> <!-- /.comment -->
         {% endif %}
-        
+
         {% for comment in article.comments %}
           <div id="comment-{{ comment.id }}" class="comment clearfix">
             <h3 class="author"><strong>{{ comment.author }}</strong> <br/> <span class="date">{{ comment.created_at | date: format: 'month_day_year' }}</span></h3>
@@ -92,7 +92,7 @@
         </div>
 
         {% endif %}
-        
+
         <div class="comment-form">
           {% form article %}
           <h2 class="title">{{ 'blog.comment.title' | t }}</h2>
@@ -124,16 +124,16 @@
 
           {% endform %}
         </div>
-      </div> 
+      </div>
       {% endif %}
       <!-- End comments -->
     </div>
   </div>
-    
+
   <!-- Begin sidebar -->
   {% include 'snippet-blog-sidebar' %}
 
   <!-- End sidebar -->
-  
+
 </div>
 {% endpaginate %}

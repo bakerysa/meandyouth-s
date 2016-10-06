@@ -1,4 +1,8 @@
 <div class="row full-width">
+  <h1 class="page-title">{{ page.title }}</h1>
+</div>
+
+<div class="row full-width">
   <div class="columns large-6">
     <div class="contact-left">
     <h1>{{ 'contact_page.contact-promo-left' | t }}</h1>
@@ -8,14 +12,13 @@
   <div class="columns large-6">
     <div class="contact-right">
     <h1>{{ 'contact_page.contact-promo-right' | t }}</h1>
-    <button class="button styled-submit"><a href="{{ 'contact_page.contact-button-right' | t }}">{{ 'contact_page.contact-button-right' | t }}</a></button>
+    <button class="button styled-submit"><a href="mailto:{{ 'contact_page.contact-button-right' | t }}">{{ 'contact_page.contact-button-right' | t }}</a></button>
   </div>
 </div>
 </div>
 
-<div class="row full-width">
-  <h1 class="page-title">{{ page.title }}</h1>
-  <div class="columns large-6">
+
+  <!-- <div class="columns large-6">
     {% form 'contact' %}
 
       {% if form.posted_successfully? %}
@@ -67,4 +70,4 @@
       {% endif %}
     {% endform %}
           </div>
-</div>
+</div> -->
