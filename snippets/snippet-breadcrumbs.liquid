@@ -1,10 +1,9 @@
 <ul class="breadcrumbs colored-links">
-   <li><a href="/">{{ 'general.breadcrumbs.home' | t }}</a></li>
    {% if template contains "product" %}
-      {% if collection %}            
-       <li><a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></li>  <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% if collection %}
+       <li><a href="/collections/shop">{{ 'general.breadcrumbs.collections' | t }}</a></li>
       {% else %}
-       <li><a href="/collections/all">{{ 'general.breadcrumbs.product' | t }}</a></li>
+       <li><a href="/collections/shop">{{ 'general.breadcrumbs.product' | t }}</a></li>
       {% endif %}
        <li>{{ product.title }}</li>
 
@@ -27,7 +26,7 @@
        <li>{{ 'general.breadcrumbs.account' | t }}</li>
    {% elsif template contains "customers/register" %}
       <li>{{ 'general.breadcrumbs.register' | t }}</li>
-   
+
    {% elsif template contains "customers/account" %}
       <li>{{ 'general.breadcrumbs.account' | t }}</li>
    {% elsif template contains "customers/addresses" %}
@@ -44,8 +43,8 @@
     {% elsif template contains "search" %}
        <li>{{ page_title }}</li>
     {% elsif template contains "list-collections" %}
-       <li>{{ page_title }}</li>   
+       <li>{{ page_title }}</li>
     {% elsif template contains "cart" %}
        <li>{{ page_title }}</li>
-   {% endif %}      
+   {% endif %}
 </ul>

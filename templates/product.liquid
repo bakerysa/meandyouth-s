@@ -33,7 +33,7 @@
 
   <div class="positions active hide-for-js">
     <div data-position="title-vendor">
-      <h1 class="page-title" itemprop="name">{{ product.title }}</h1>
+      <h2 class="page-title" itemprop="name">{{ product.title }}</h2>
       {% if settings.product-brand-show %}
         {% assign product_vendor_handle = product.vendor | handle %}
         {% if collections[product_vendor_handle].handle == product_vendor_handle %}

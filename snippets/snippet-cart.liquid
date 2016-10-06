@@ -12,13 +12,12 @@
 
 			  <tbody>
 
-
 			  </tbody>
 
 			  <tfoot>
 			    <tr>
 						<td class="items-count"><a href="/cart"><span class="number">{{ cart.item_count }}</span> {{ 'products.recently_added_popup.items' | t }}</a></td>
-						<td colspan="2" class="text-right all-caps"><strong>{{ 'products.recently_added_popup.total' | t }} <span class="total-price money" style="margin-left:5px;">{{ cart.total_price | money }}</span></strong></td>
+						<td colspan="2" class="text-right all-caps"><strong>{{ 'products.recently_added_popup.total' | t }} <span class="total-price money" style="margin-left:5px;">{{ cart.total_price }}</span></strong></td>
 			    </tr>
 			  </tfoot>
 
@@ -65,4 +64,3 @@
 		</div>
 	</div>
 </div>
-
