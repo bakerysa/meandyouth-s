@@ -3,10 +3,9 @@
   <div class="row">
     <div id="register" class="columns large-12">
       <h1 class="page-title">{{ 'customer.register.page_title' | t }}</h1>
-      {% include 'snippet-breadcrumbs' %}
 
 	    {% form 'create_customer' %}
-	
+
 	      {{ form.errors | default_errors }}
 
 	      <div id="first_name" class="clearfix large_form">
@@ -33,9 +32,9 @@
 	        <input class="button" type="submit" value="{{ 'customer.register.submit' | t }}" />
 	        <span class="note"> <a style="margin-left: 15px;" href="{{ shop.url }}/account/login">{{ 'customer.register.login' | t }}</a></span>
 	      </div>
-	
+
 	    {% endform %}
-        
+
     </div><!-- #register -->
   </div><!-- .row -->
 </div><!-- #customer-register -->

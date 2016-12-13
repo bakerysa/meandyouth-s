@@ -51,11 +51,9 @@
 	{% assign widget_link_url = settings[widget_link_url] %}
 
 	<div class="image-text-widget">
-
 	  {% if widget_link_url.size > 0 %}
 	    <a href="{{ widget_link_url }}">
 	  {% endif %}
-
 		{% if widget_image.size > 0 %}
 	  	{{ widget_image | asset_url | img_tag: widget_alt }}
 	  {% endif %}

@@ -25,6 +25,12 @@
 }
 
   @media only screen and (min-width: 768px) {
+
+    #mobile-home {
+      display: none!important;
+    }
+
+
 .template-index .widgets .row {
     padding: 30px 30px 0;
 }
@@ -68,7 +74,7 @@ h3.title a {
  h1.page-title {
   text-transform: uppercase;
   text-align: center;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 /* Tab System */
@@ -167,7 +173,7 @@ h3.title a {
 
 .tabs-wrapper.horizontal .headings .trigger {
   padding: 0;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 14px;
   font-family: 'franklin-gothic-urw-comp';
   text-align: center;
@@ -306,8 +312,8 @@ table tr:nth-of-type(even) {
   margin-bottom: 20px;
 }
 
-.contact-left h1 {
-  font-size: 30px;
+.contact-left h2 {
+  font-size: 22px;
   text-transform: uppercase;
   text-align: center;
   line-height: 30px;
@@ -334,8 +340,8 @@ table tr:nth-of-type(even) {
   font-size: 18px;
 }
 
-.contact-right h1 {
-  font-size: 30px;
+.contact-right h2 {
+  font-size: 22px;
   text-transform: uppercase;
   text-align: center;
   line-height: 30px;
@@ -370,6 +376,14 @@ display: block;
 margin: 10px auto;
 }
 
+.rte-content h2 {
+  font-size: 24px;
+}
+
+.rte-content h3 {
+    font-size: 20px;
+  }
+
 .template-page .main-content .single-column.row {
   margin: 0 auto;
 }
@@ -383,16 +397,20 @@ margin: 10px auto;
 }
 
 .template-product article .page-title {
+  font-size: 26px;
+}
+
+.template-product article .prices .actual-price {
   font-size: 20px;
 }
+
 .template-product .rte-content ul, .rte-content ol, .rte-content table, .rte-content blockquote, .rte-content p {
   font-size: 14px;
 }
 
+
 @media (max-width: 1050px)  {
-  .tabs-wrapper.horizontal .headings .trigger {
-    font-size: 12px;
-  }
+
   .template-index .widgets .small-promos .caption .inner h1 {
     font-size: 20px;
   }
@@ -416,9 +434,120 @@ margin: 10px auto;
   font-size: 20px;
 }
 
+.template-cart h3 {
+  font-size: 22px;
+}
+
+.template-cart .shipping-taxes-notification {
+  font-size: 16px;
+}
+
 .row.blog-title h1 {
   text-align: center;
   text-transform: uppercase;
 }
 
+.account-content .row {
+  margin: 0 auto;
+}
+
+form {
+  margin: 0 auto;
+}
+
+#create_customer label {
+  font-family: 'franklin-gothic-urw-comp';
+  font-size: 16px;
+}
+
+#customer_login label {
+  font-family: 'franklin-gothic-urw-comp';
+  font-size: 16px;
+}
+
+.currency-selector{
+  display: none!important;
+}
+
+.main-footer p {
+    margin-top: 10px;
+}
+
+.main-footer .title {
+  margin: 15px 0 0 0;
+}
+
+.main-footer .social-follow a {
+  margin: 0 10px 0 0;
+}
+.welcome {
+position: absolute;
+z-index: 1;
+transform: translateX(50%)translateY(100%);
+right: 50%;
+font-size: 32px;
+white-space: nowrap;
+}
+
+@media only screen and (max-width: 900px) {
+  .tabs-wrapper.horizontal .headings .trigger {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .page-stockists .tabs-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  #home-left, #home-right {
+    display:none;
+  }
+
+  #mobile-home {
+    display: block!important;
+  }
+
+  .welcome {
+  position: relative;
+  transform: none;
+  right: auto;
+  font-size: 22px;
+  text-align: center;
+  margin: 5px;
+  white-space: normal;
+}
+.contact-left {
+  margin-bottom: 0;
+  height: 200px;
+}
+.contact-right {
+  margin-bottom: 0;
+  height: 200px;
+}
+.contact-left h2 {
+  font-size: 20px;
+  top: 20%;
+}
+.contact-right h2 {
+  font-size: 20px;
+  top: 20%;
+}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 959px) {
+
+  .welcome {
+  position: absolute;
+  z-index: 1;
+  transform: translateX(50%)translateY(50%);
+  right: 50%;
+  font-size: 26px;
+  white-space: nowrap;
+}
+.main-footer .title {
+    font-size: 18px;
+}
+}
 </style>

@@ -4,7 +4,6 @@
 
 {% for widget_order in widgets_order %}
   {% if widget_order == 'a' %}
-
     <section class="slider {{ settings.color-icons-theme }}">
       <div class="row">
         <div class="slides">
@@ -292,6 +291,9 @@
     <div class="widgets">
       <div class="small-promos">
         <div class="row">
+        <h1 class="welcome">HONEST BEAUTY AND SKINCARE PRODUCTS MADE FOR <span style="font-style: italic;">REAL</span> WOMEN</h1>
+        </div>
+        <div class="row">
           {% assign column_count = 0 %}
           {% if settings.home-widget-image-text-1 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
           {% if settings.home-widget-image-text-2 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
@@ -302,21 +304,21 @@
           {% if column_count > 0 %}
             {% assign widget = 'home-widget-image-text-1' %}
             {% if settings.home-widget-image-text-1 %}
-            <div class="columns large-{{ 12 | divided_by: column_count }}">
+            <div id="home-left" class="columns large-6">
               {% include 'snippet-home-widget' %}
             </div>
             {% endif %}
 
             {% assign widget = 'home-widget-image-text-2' %}
             {% if settings.home-widget-image-text-2 %}
-            <div class="columns large-{{ 12 | divided_by: column_count }}">
+            <div id="home-right" class="columns large-6">
               {% include 'snippet-home-widget' %}
             </div>
             {% endif %}
 
             {% assign widget = 'home-widget-image-text-3' %}
             {% if settings.home-widget-image-text-3 %}
-            <div class="columns large-{{ 12 | divided_by: column_count }}">
+            <div id="mobile-home" class="columns large-12">
               {% include 'snippet-home-widget' %}
             </div>
             {% endif %}
@@ -329,7 +331,6 @@
             {% endif %}
 
           {% else %} {% comment %} Placeholders {% endcomment %}
-
             <div class="columns large-4">
               <div class="image-text-widget">
                 <a href="https://themes.shopify.com/themes/blockshop/styles/deli" target="_blank">

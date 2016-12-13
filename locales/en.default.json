@@ -61,7 +61,8 @@
       "cart": "Cart"
     },
     "footer": {
-      "newsletter_title": "Subscribe to M&Y Juice",
+      "newsletter_title": "Let's Be Friends",
+      "newsletter_title2": "Subscribe to M&Y Juice",
       "newsletter_subtitle": "Get the latest M&Y news and exclusive promotions",
       "newsletter_placeholder": "Your Email",
       "newsletter_button": "SIGN ME UP",

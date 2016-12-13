@@ -1,9 +1,8 @@
 <div class="account-content">
 <div id="customer-login">
   <div class="row">
-    <div id="login" class="columns large-7">
+    <div id="login" class="columns large-12">
       <h1 class="page-title">{{ 'customer.login.page_title' | t }}</h1>
-      {% include 'snippet-breadcrumbs' %}
 
       {% form 'customer_login' %}
       {{ form.errors | default_errors }}
@@ -23,7 +22,7 @@
       </div>
       {% endform %}
     </div>
-    
+
     <div id="recover-password" style="display:none;" class="columns large-7">
       <h1 class="page-title">{{ 'customer.login.reset_password' | t }}</h1>
       {% include 'snippet-breadcrumbs' %}
@@ -39,7 +38,7 @@
       <span class="note"> <a style="margin-left: 15px;" href="#" onclick="hideRecoverPasswordForm();return false;">{{ 'customer.login.cancel' | t }}</a></span>
       {% endform %}
     </div>
-    
+
     {% if shop.checkout.guest_login %}
     <div id="guest" class="columns large-7">
       <h1 class="page-title">{{ 'customer.login.guest_title' | t }}</h1>
@@ -48,7 +47,7 @@
       {% endform %}
     </div>
     {% endif %}
-    
+
   </div>
 </div>
 </div>

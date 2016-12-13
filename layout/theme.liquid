@@ -268,9 +268,15 @@
               {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="Vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
               {% if settings.footer-youtube-follow-url.size > 0 %}<a title="Youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
               {% if settings.footer-google-plus-follow-url.size > 0 %}<a title="Google Plus" aria-hidden="true" target="_blank" class="glyph googleplus" href="{{ settings.footer-google-plus-follow-url }}"></a>{% endif %}
-
               {% if settings.footer-rss-follow-url.size > 0 %}<a title="RSS" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
             </div>
+          {% endif %}
+
+          {% if settings.footer-mailing-list-show or show_social %}
+          {% assign newsletter_title2 = 'layout.footer.newsletter_title2' | t %}
+          {% if newsletter_title2.size > 0 %}
+          <h2 class="title">{{ newsletter_title2 }}</h2>
+          {% endif %}
           {% endif %}
 
           {% if settings.footer-mailing-list-show or settings.popup--newsletter--enabled %}
